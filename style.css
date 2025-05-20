@@ -1,0 +1,65 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#question-container {
+    min-height: 150px;
+    transition: all 0.3s ease;
+}
+
+#question-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-checkbox:checked + span {
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+button {
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#answer-container {
+    transition: opacity 0.5s ease;
+}
+
+.form-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.form-checkbox:checked {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.form-checkbox:checked::after {
+    content: "✓";
+    font-size: 0.8rem;
+    color: white;
+    position: absolute;
+    top: -2px;
+    left: 1px;
+}

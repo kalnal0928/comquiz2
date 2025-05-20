@@ -1,1 +1,1 @@
-# comquiz2
+# comq.github.io

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴퓨터 개론 퀴즈_</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div id="root" class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4">컴퓨터 개론 퀴즈</h1>
+        <p class="text-sm text-gray-600 mb-4">ⓒ 2025. 후니85 All rights reserved.</p>
+        
+        <div id="chapter-selection" class="mb-4 p-4 bg-white rounded shadow-md">
+    <h2 class="text-lg font-semibold mb-2">출제 범위 선택</h2>
+    <div class="flex flex-wrap gap-2">
+        <label class="inline-flex items-center">
+            <input type="checkbox" class="chapter-checkbox form-checkbox" value="0장">
+            <span class="ml-2">0장</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="checkbox" class="chapter-checkbox form-checkbox" value="1장">
+            <span class="ml-2">1장</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="checkbox" class="chapter-checkbox form-checkbox" value="2장">
+            <span class="ml-2">2장</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="checkbox" class="chapter-checkbox form-checkbox" value="3장">
+            <span class="ml-2">3장</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="checkbox" class="chapter-checkbox form-checkbox" value="4장">
+            <span class="ml-2">4장</span>
+        </label>
+    </div>
+    <div class="mt-4 flex gap-2">
+        <button id="select-all" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+            모두 선택
+        </button>
+        <button id="start-quiz" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            퀴즈 시작
+        </button>
+    </div>
+</div>
+
+        <!-- 퀴즈 영역 -->
+        <div id="quiz-area" class="hidden">
+            <div class="flex justify-between mb-4">
+                <div id="progress-info" class="text-md">
+                    문제 <span id="current-question">0</span>/<span id="total-questions">0</span>
+                </div>
+                <div id="score-info" class="text-md">
+                    맞춤: <span id="correct-count">0</span> | 틀림: <span id="wrong-count">0</span>
+                </div>
+            </div>
+
+            <div id="question-container" class="bg-white shadow-md rounded p-4 mb-4">
+                <!-- Question will be inserted here -->
+            </div>
+            
+            <div id="answer-container" class="hidden bg-green-100 border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <strong class="font-bold">정답!</strong>
+                <span class="block sm:inline" id="answer-text"></span>
+            </div>
+            
+            <div class="flex justify-between">
+                <button id="check-answer" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    정답 확인
+                </button>
+                <div>
+                    <button id="mark-correct" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2 hidden">
+                        맞춤
+                    </button>
+                    <button id="mark-wrong" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded hidden">
+                        틀림
+                    </button>
+                </div>
+                <button id="next-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    다음 문제
+                </button>
+            </div>
+        </div>
+
+        <!-- 결과 영역 -->
+        <div id="result-area" class="hidden mt-4 p-4 bg-white rounded shadow-md">
+            <h2 class="text-lg font-semibold mb-2">퀴즈 결과</h2>
+            <p class="mb-2">총 문제: <span id="result-total">0</span>개</p>
+            <p class="mb-2">맞은 문제: <span id="result-correct">0</span>개</p>
+            <p class="mb-2">틀린 문제: <span id="result-wrong">0</span>개</p>
+            
+            <div class="mt-4">
+                <button id="restart-quiz" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+                    처음부터 다시
+                </button>
+                <button id="retry-wrong" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded hidden">
+                    틀린 문제만 다시 풀기
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
