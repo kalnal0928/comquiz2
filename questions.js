@@ -337,21 +337,21 @@ const questions = [
   {
     "chapter": "8장",
     "question": "연결 리스트에 새 노드를 삽입하는 연산의 순서는?",
-    "answer": `모름`
+    "answer": `예시없음`
   },
   {
     "chapter": "8장",
     "question": "이진트리를 배열로 표현한 경우, D 노드가 들어갈 공간의 인덱스는?",
-    "answer": `모름`
+    "answer": `예시없음`
   },
   {
     "chapter": "8장",
     "question": "이진 트리의 검색 알고리즘에서, ?에 들어가야 할 값은?",
-    "answer": `모름`
+    "answer": `예시없음`
   },
   {
     "chapter": "8장",
     "question": "다음 이진 트리에서 H를 검색하기 위해 탐색할 노드의 최단 경로를 순차적으로 표현하면?",
-    "answer": `모름`
+    "answer": `예시없음`
   }
 ]
