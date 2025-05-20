@@ -33,7 +33,8 @@ const questions = [
   {
     "chapter": "5장",
     "question": "다음 구문과 관련된 의사코드 프리미티브는? p18",
-    "answer": `•배정문(assignment statement) : 이름= 식 / 예시) 성적= 중간고사+기말고사
+    "answer": `•배정문(assignment statement) : 
+                이름= 식 / 예시) 성적= 중간고사+기말고사
               •조건부선택(selection)_1 
                 if(조건):  예시 if(판매액이감소하였음):
                       활동         가격을5%만큼낮추어라
