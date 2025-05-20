@@ -2,7 +2,7 @@ const questions = [
   {
     "chapter": "5장",
     "question": "알고리즘 단계에 대한 설명이 아닌 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
@@ -14,291 +14,291 @@ const questions = [
   {
     "chapter": "5장",
     "question": "어떤 복잡한 대상을 표현할 때, 잘 정의된 기초요소들의 집합을 구축하면 쉽고 정형적인 표현이 가능하다. 이 때 사용되는 기초 요소를 가리키는 용어는?",
-    "answer":'모름'
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "알고리즘을 자유롭게 간략히 서술해 놓은 것으로, 자연어와 프로그래밍 언어 사이에 위치하는 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "의사코드 언어의 설계 원칙에 해당하지 않는 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "다음 구문과 관련된 의사코드 프리미티브는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "다음 코드에 따르면, 비가 오지 않고 기온이 낮을 경우에 무엇을 하나요?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "다음 코드를 실행한 결과, 'Hello'가 출력되는 횟수는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "'알고리즘의 발견'과 관련없는 설명은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "문제해결 방법 중에서, 문제의 제약조건 중 일부를 완화하고 문제를 여러 조각으로 나누어 각 조각을 풀어가는 방법론은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "반복 제어의 구성요소가 아닌 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "명령 집합을 원래 작업의 부분 작업으로서 반복하는 구조는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "다음 중, 더 효율적인 검색 방법은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "그래프 모양에 따라 알고리즘의 효율성을 분류하는 표기법으로, 최악의 경우에 대한 분석은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "그래프 모양에 따라 알고리즘의 효율성을 분류하는 표기법으로, 최선의 경우에 대한 분석은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "그래프 모양에 따라 알고리즘의 효율성을 분류하는 표기법으로, 평균의 경우에 대한 분석은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "5장",
     "question": "명확하고 실행 가능한 단계들의 집합단계로, 순서가 정해져 있고 종료되는 프로세스를 정의한 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "기계 명령을 표현하기 위한 기호 체계로, 어셈블러(assembler)라고 불리는 프로그램에 의해 기계어로 변환되는 언어는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "숫자들로 인코딩된 일련의 명령들로 구성된 언어로, 이해하기 어렵고, 오류 해결(디버깅) 어려운 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "3세대 언어에서 소스코드를 기계어로 번역해주는 프로그램으로, 번역된 버전은 나중에 사용하는 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "3세대 언어에서 소스코드를 기계어로 번역하면서 실행하는 프로그램은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "프로그래밍 언어가 진보할수록, 사람이 컴퓨터의 특성을 맞춰서 코딩해야 한다?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "프로그램이 수행할 동작을 '일일이 지정'하는 프로그래밍 모델로, '객체'를 활용하는 모델은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "시각적 프로그래밍 언어로, 화면 상에서 그래픽 블록을 조작하여 프로그램을 작성하는 방식은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "최근 가장 핫한 프로그래밍 언어는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "전형적인 명령형 프로그램 구성에서, 프로그램에서 사용할 용어를 '정의'하는 문장은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "주소 대신에 '의미있는 이름'으로 주기억장치의 위치를 표시한 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "프로그램의 기능을 사람이 이해하도록 자연어로 설명하는 문장은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "제어문 중에서 반복을 나타내는 구문이 아닌 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "다음 for 문에서 본체(body)가 실행되는 횟수는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "'함수의 입력으로 주어지는 데이터'를 가리키는 용어는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "함수 헤더가 정의하는 것이 아닌 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "함수의 매개변수 전달 방식 중에, '참조에 의한 전달'은 데이터의 실제주소를 전달하기 때문에 호출 측의 데이터는 변화가 없다?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "함수 중에서 결과값을 반환하지 않는 함수를 가리키는 용어는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "객체지향 프로그램의 개념 중에서, '객체 구성에 사용되는 틀(template)'은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "객체지향 프로그램의 개념 중에서, '객체가 다양한 메시지에 대해 어떻게 반응해야 할지를 기술한 것'은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "'생성자'에 대한 설명으로 틀린 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "'이미 정의되어 있는 클래스'를 활용하여 새로운 클래스를 정의할 수 있게 해주는 객체지향 개념은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "6장",
     "question": "병렬 프로그래밍에서, 한 번에 한 프로세스만이 데이터에 접근할 수 있도록 보장하는 방법과 관련되지 않은 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "항목들이 '모두 동일한 타입'인 데이터 블록으로, 각 원소의 위치를 인덱스로 표시하는 것은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "아래 배열에서 인덱스가 7인 값은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "다음 배열은 몇 차원인가?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "'타입과 크기가 다를 수 있는' 데이터 항목들의 블록으로, 각 항목은 필드(field)라고 불리는 자료구조는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "가장 보편적인 데이터 추상화로, 항목을 '순차적으로 배열'하는 데이터 집합은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "항목들에 대한 제거와 삽입이 마지막 원소쪽에서만 이루어지는 리스트는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "스택에서 가장 최근 항목을 가리키는 변수는 (a)이고, 가장 오래된 항목을 가리키는 변수는 (b)이다. a,b에 해당하는 변수는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "스택은 맨 마지막에 들어간 원소가 맨 처음으로 출력된다. 이를 영어약자로 표현하면?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "한쪽 끝에서 삽입이 일어나고, 그 반대쪽 끝에서 삭제가 일어나는 순서 리스트는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "큐에서 가장 최근 항목을 가리키는 변수는 (a)이고, 가장 오래된 항목을 가리키는 변수는 (b)이다. a,b에 해당하는 변수는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "큐는 맨 처음에 들어간 원소가 맨 처음으로 출력된다. 이를 영어약자로 표현하면?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "항목들이 계층적 구성을 갖는 데이터 집합으로, 상위 원소에서 하위 원소로 내려가면서 확장되는 나무 모양의 자료구조는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "아래 트리에서 '상범' 값을 가진 노드의 형제는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "데이터 항목이 저장된 '주소'를 값으로 갖는 변수는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "다음 그림이 설명하는 자료구조는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "행(row) 우선 순서/열(column) 우선 순서로 메모리에 저장되는 자료구조는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "다양한 타입의 필드로 표현되는 자료구조는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "연결 리스트에 새 노드를 삽입하는 연산의 순서는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "이진트리를 배열로 표현한 경우, D 노드가 들어갈 공간의 인덱스는?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "이진 트리의 검색 알고리즘에서, ?에 들어가야 할 값은?",
-    "answer": "모름"
+    "answer": `모름`
   },
   {
     "chapter": "8장",
     "question": "다음 이진 트리에서 H를 검색하기 위해 탐색할 노드의 최단 경로를 순차적으로 표현하면?",
-    "answer": "모름"
+    "answer": `모름`
   }
 ]

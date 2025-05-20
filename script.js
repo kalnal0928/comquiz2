@@ -99,7 +99,8 @@ checkAnswerButton.addEventListener('click', () => {
         const q = selectedQuestions[currentQuestionIndex];
         
         // 답변 텍스트를 줄바꿈 처리
-        let formattedAnswer = q.answer.replace(/,\s*/g, ',<br>');
+        let formattedAnswer = q.answer.replace(/\n/g, '<br>');
+        
         answerText.innerHTML = formattedAnswer; // innerHTML 사용
         
         answerContainer.classList.remove('hidden');
@@ -109,11 +110,11 @@ checkAnswerButton.addEventListener('click', () => {
         isAnswerRevealed = true;
 
         // <a> 태그가 포함되어 있으면 이스케이프 처리
-if (formattedAnswer.includes('<a>')) {
-    formattedAnswer = formattedAnswer
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-}
+        if (formattedAnswer.includes('<a>')) {
+            formattedAnswer = formattedAnswer
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
     }
 });
 
