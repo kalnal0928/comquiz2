@@ -73,24 +73,25 @@ startQuizButton.addEventListener('click', () => {
 
 // 현재 문제 표시
 function showCurrentQuestion() {
-    if (currentQuestionIndex >= selectedQuestions.length) {
-        showResults();
-        return;
-    }
-    
-    const q = selectedQuestions[currentQuestionIndex];
-    questionContainer.innerHTML = `
-        <p class="mb-2"><strong>${q.chapter}</strong></p>
-        <p class="text-lg">${q.question}</p>
-    `;
-    
-    answerContainer.classList.add('hidden');
-    checkAnswerButton.classList.remove('hidden');
-    markCorrectButton.classList.add('hidden');
-    markWrongButton.classList.add('hidden');
-    
-    isAnswerRevealed = false;
-    updateProgressInfo();
+const q = selectedQuestions[currentQuestionIndex];
+
+  // 질문 표시
+let questionHTML = `<h3 class="font-semibold text-lg mb-2">${q.question}</h3>`;
+
+  // 이미지가 있으면 추가
+if (q.image) {
+    questionHTML += `<img src="${q.image}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
+}
+  
+questionContainer.innerHTML = questionHTML;
+  
+answerContainer.classList.add('hidden');
+checkAnswerButton.classList.remove('hidden');
+markCorrectButton.classList.add('hidden');
+markWrongButton.classList.add('hidden');
+  
+isAnswerRevealed = false;
+updateProgressInfo();
 }
 
 // 정답 확인
