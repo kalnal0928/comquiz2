@@ -166,11 +166,6 @@ markWrongButton.addEventListener('click', () => {
 
 // 다음 문제로 이동
 nextButton.addEventListener('click', () => {
-    if (!isAnswerRevealed) {
-        if (!confirm('정답을 확인하지 않고 넘어가시겠습니까?')) {
-            return;
-        }
-    }
     nextQuestion();
 });
 
