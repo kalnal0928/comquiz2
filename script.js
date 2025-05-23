@@ -164,9 +164,17 @@ markWrongButton.addEventListener('click', () => {
     nextQuestion();
 });
 
-// 다음 문제로 이동
+// 다음 문제로 이동 - 확인 대화상자 없이 바로 진행
 nextButton.addEventListener('click', () => {
-    nextQuestion();
+    // 경고창 없이 바로 다음 문제로 이동
+    currentQuestionIndex++;
+    
+    // 마지막 문제인지 확인
+    if (currentQuestionIndex >= totalQuestions) {
+        showResults();
+    } else {
+        showCurrentQuestion();
+    }
 });
 
 function nextQuestion() {
