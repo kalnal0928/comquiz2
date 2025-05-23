@@ -288,6 +288,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-3. 다음 배열은 몇 차원인가?p8",
+    "image": "images/8-3.png",
     "answer": `예시 없음
             • 1차원 배열: 하나의 행으로 이루어짐
             • 2차원 배열: 행들과 열들로 이루어짐(1차원 배열의 집합)
@@ -351,6 +352,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-15. 다음 그림이 설명하는 자료구조는?",
+    "image": "images/8-15.png",
     "answer": `예시 없음`
   },
   {
@@ -366,6 +368,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-18. 연결 리스트에 새 노드를 삽입하는 연산의 순서는?",
+    "image": "images/8-18.png",
     "answer": `예시없음`
   },
   {
@@ -376,11 +379,14 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-20. 이진 트리의 검색 알고리즘에서, ?에 들어가야 할 값은?",
+    "image": "images/8-20.png",
+    "image": "images/8-20-1.png",
     "answer": `예시없음`
   },
   {
     "chapter": "8장",
     "question": "8장-21. 다음 이진 트리에서 H를 검색하기 위해 탐색할 노드의 최단 경로를 순차적으로 표현하면?",
+    "image": "images/8-21.png",
     "answer": `예시없음`
   }
 ]
