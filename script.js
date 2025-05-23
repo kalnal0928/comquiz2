@@ -99,23 +99,28 @@ checkAnswerButton.addEventListener('click', () => {
     if (!isAnswerRevealed) {
         const q = selectedQuestions[currentQuestionIndex];
         
-        // 답변 텍스트를 줄바꿈 처리
-        let formattedAnswer = q.answer.replace(/\n/g, '<br>');
+        // 답변 텍스트 처리
+        let formattedAnswer = q.answer;
         
-        answerText.innerHTML = formattedAnswer; // innerHTML 사용
+        // HTML 태그 이스케이프 처리 (필요한 경우)
+        if (formattedAnswer.includes('<a>') || formattedAnswer.includes('<') && formattedAnswer.includes('>')) {
+            formattedAnswer = formattedAnswer
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
         
+        // 줄바꿈 처리 (이스케이프 처리 후에 해야 함)
+        formattedAnswer = formattedAnswer.replace(/\n/g, '<br>');
+        
+        // 처리된 텍스트를 HTML에 표시
+        answerText.innerHTML = formattedAnswer;
+        
+        // UI 상태 업데이트
         answerContainer.classList.remove('hidden');
         checkAnswerButton.classList.add('hidden');
         markCorrectButton.classList.remove('hidden');
         markWrongButton.classList.remove('hidden');
         isAnswerRevealed = true;
-
-        // <a> 태그가 포함되어 있으면 이스케이프 처리
-        if (formattedAnswer.includes('<a>')) {
-            formattedAnswer = formattedAnswer
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;');
-        }
     }
 });
 
@@ -146,7 +151,13 @@ nextButton.addEventListener('click', () => {
 
 function nextQuestion() {
     currentQuestionIndex++;
-    showCurrentQuestion();
+    
+    // 마지막 문제인지 확인
+    if (currentQuestionIndex >= totalQuestions) {
+        showResults();
+    } else {
+        showCurrentQuestion();
+    }
 }
 
 // 결과 표시
