@@ -379,8 +379,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-20. 이진 트리의 검색 알고리즘에서, ?에 들어가야 할 값은?",
-    "image": "images/8-20.png",
-    "image": "images/8-20-1.png",
+    "images": ["images/8-20.png", "images/8-20-1.png"],
     "answer": `예시없음`
   },
   {
