@@ -374,6 +374,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-19. 이진트리를 배열로 표현한 경우, D 노드가 들어갈 공간의 인덱스는?",
+    "image": "images/8-19.png",
     "answer": `예시없음`
   },
   {
