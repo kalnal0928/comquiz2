@@ -32,10 +32,14 @@ const retryWrongButton = document.getElementById('retry-wrong');
 // 모두 선택 버튼
 const selectAllButton = document.getElementById('select-all');
 
-// 모두 선택 버튼 이벤트 리스너
+// 모두 선택 버튼 이벤트 리스너 - 토글 기능 추가
 selectAllButton.addEventListener('click', () => {
+    // 모든 체크박스가 체크되어 있는지 확인
+    const allChecked = Array.from(chapterCheckboxes).every(checkbox => checkbox.checked);
+    
+    // 모두 체크되어 있으면 모두 해제, 아니면 모두 체크
     chapterCheckboxes.forEach(checkbox => {
-        checkbox.checked = true;
+        checkbox.checked = !allChecked;
     });
 });
 
