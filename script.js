@@ -91,25 +91,32 @@ startQuizButton.addEventListener('click', () => {
 
 // 현재 문제 표시
 function showCurrentQuestion() {
-const q = selectedQuestions[currentQuestionIndex];
+  const q = selectedQuestions[currentQuestionIndex];
 
   // 질문 표시
-let questionHTML = `<h3 class="font-semibold text-lg mb-2">${q.question}</h3>`;
+  let questionHTML = `<h3 class="font-semibold text-lg mb-2">${q.question}</h3>`;
 
-  // 이미지가 있으면 추가
-if (q.image) {
+  // 단일 이미지가 있으면 추가
+  if (q.image) {
     questionHTML += `<img src="${q.image}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
-}
+  }
   
-questionContainer.innerHTML = questionHTML;
+  // 이미지 배열이 있으면 각 이미지 추가
+  if (q.images && q.images.length > 0) {
+    q.images.forEach(img => {
+      questionHTML += `<img src="${img}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
+    });
+  }
   
-answerContainer.classList.add('hidden');
-checkAnswerButton.classList.remove('hidden');
-markCorrectButton.classList.add('hidden');
-markWrongButton.classList.add('hidden');
+  questionContainer.innerHTML = questionHTML;
   
-isAnswerRevealed = false;
-updateProgressInfo();
+  answerContainer.classList.add('hidden');
+  checkAnswerButton.classList.remove('hidden');
+  markCorrectButton.classList.add('hidden');
+  markWrongButton.classList.add('hidden');
+  
+  isAnswerRevealed = false;
+  updateProgressInfo();
 }
 
 // 정답 확인
