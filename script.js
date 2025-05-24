@@ -43,6 +43,15 @@ selectAllButton.addEventListener('click', () => {
     });
 });
 
+// 배열을 무작위로 섞는 함수
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 // 퀴즈 시작
 startQuizButton.addEventListener('click', () => {
     const selectedChapters = Array.from(chapterCheckboxes)
@@ -57,22 +66,8 @@ startQuizButton.addEventListener('click', () => {
     // 선택된 장에 해당하는 문제 필터링
     selectedQuestions = questions.filter(q => selectedChapters.includes(q.chapter));
     
-    // 문제 순서 섞기를 제거하고 대신 문제 번호순으로 정렬
-    selectedQuestions.sort((a, b) => {
-        // 장 번호 추출 (예: "5장-1." -> "5")
-        const chapterA = parseInt(a.question.split('장')[0]);
-        const chapterB = parseInt(b.question.split('장')[0]);
-        
-        if (chapterA !== chapterB) {
-            return chapterA - chapterB;
-        }
-        
-        // 문제 번호 추출 (예: "5장-1." -> "1")
-        const questionNumA = parseInt(a.question.split('-')[1]);
-        const questionNumB = parseInt(b.question.split('-')[1]);
-        
-        return questionNumA - questionNumB;
-    });
+    // 문제를 무작위로 섞기
+    selectedQuestions = shuffleArray([...selectedQuestions]);
     
     totalQuestions = selectedQuestions.length;
     currentQuestionIndex = 0;
@@ -240,12 +235,4 @@ retryWrongButton.addEventListener('click', () => {
 function updateProgressInfo() {
     currentQuestionEl.textContent = currentQuestionIndex + 1;
     totalQuestionsEl.textContent = totalQuestions;
-}
-
-// 배열을 랜덤하게 섞는 함수
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
 }
