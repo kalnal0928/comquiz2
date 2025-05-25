@@ -85,6 +85,24 @@ startQuizButton.addEventListener('click', () => {
     showCurrentQuestion();
 });
 
+// 이전 문제로 이동하는 함수
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showCurrentQuestion();
+    }
+}
+
+// 다음 문제로 이동하는 함수
+function nextQuestion() {
+    if (currentQuestionIndex < totalQuestions - 1) {
+        currentQuestionIndex++;
+        showCurrentQuestion();
+    } else {
+        showResults();
+    }
+}
+
 // 현재 문제 표시
 function showCurrentQuestion() {
     const q = selectedQuestions[currentQuestionIndex];
@@ -111,6 +129,10 @@ function showCurrentQuestion() {
     prevButton.classList.toggle('opacity-50', currentQuestionIndex === 0);
     prevButton.classList.toggle('cursor-not-allowed', currentQuestionIndex === 0);
     
+    nextButton.disabled = currentQuestionIndex === totalQuestions - 1;
+    nextButton.classList.toggle('opacity-50', currentQuestionIndex === totalQuestions - 1);
+    nextButton.classList.toggle('cursor-not-allowed', currentQuestionIndex === totalQuestions - 1);
+    
     answerContainer.classList.add('hidden');
     checkAnswerButton.classList.remove('hidden');
     markCorrectButton.classList.add('hidden');
@@ -119,6 +141,12 @@ function showCurrentQuestion() {
     isAnswerRevealed = false;
     updateProgressInfo();
 }
+
+// 이전 문제 버튼 이벤트 리스너
+prevButton.addEventListener('click', prevQuestion);
+
+// 다음 문제 버튼 이벤트 리스너
+nextButton.addEventListener('click', nextQuestion);
 
 // 정답 확인
 checkAnswerButton.addEventListener('click', () => {
@@ -184,38 +212,6 @@ markWrongButton.addEventListener('click', () => {
     wrongQuestions.push(selectedQuestions[currentQuestionIndex]);
     nextQuestion();
 });
-
-// 이전 문제로 이동
-prevButton.addEventListener('click', () => {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        showCurrentQuestion();
-    }
-});
-
-// 다음 문제로 이동 - 확인 대화상자 없이 바로 진행
-nextButton.addEventListener('click', () => {
-    // 경고창 없이 바로 다음 문제로 이동
-    currentQuestionIndex++;
-    
-    // 마지막 문제인지 확인
-    if (currentQuestionIndex >= totalQuestions) {
-        showResults();
-    } else {
-        showCurrentQuestion();
-    }
-});
-
-function nextQuestion() {
-    currentQuestionIndex++;
-    
-    // 마지막 문제인지 확인
-    if (currentQuestionIndex >= totalQuestions) {
-        showResults();
-    } else {
-        showCurrentQuestion();
-    }
-}
 
 // 결과 표시
 function showResults() {
