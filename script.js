@@ -16,6 +16,7 @@ const questionContainer = document.getElementById('question-container');
 const answerContainer = document.getElementById('answer-container');
 const answerText = document.getElementById('answer-text');
 const nextButton = document.getElementById('next-button');
+const prevButton = document.getElementById('prev-button');
 const checkAnswerButton = document.getElementById('check-answer');
 const markCorrectButton = document.getElementById('mark-correct');
 const markWrongButton = document.getElementById('mark-wrong');
@@ -86,32 +87,37 @@ startQuizButton.addEventListener('click', () => {
 
 // 현재 문제 표시
 function showCurrentQuestion() {
-  const q = selectedQuestions[currentQuestionIndex];
+    const q = selectedQuestions[currentQuestionIndex];
 
-  // 질문 표시
-  let questionHTML = `<h3 class="font-semibold text-lg mb-2">${q.question}</h3>`;
+    // 질문 표시
+    let questionHTML = `<h3 class="font-semibold text-lg mb-2">${q.question}</h3>`;
 
-  // 단일 이미지가 있으면 추가
-  if (q.image) {
-    questionHTML += `<img src="${q.image}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
-  }
-  
-  // 이미지 배열이 있으면 각 이미지 추가
-  if (q.images && q.images.length > 0) {
-    q.images.forEach(img => {
-      questionHTML += `<img src="${img}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
-    });
-  }
-  
-  questionContainer.innerHTML = questionHTML;
-  
-  answerContainer.classList.add('hidden');
-  checkAnswerButton.classList.remove('hidden');
-  markCorrectButton.classList.add('hidden');
-  markWrongButton.classList.add('hidden');
-  
-  isAnswerRevealed = false;
-  updateProgressInfo();
+    // 단일 이미지가 있으면 추가
+    if (q.image) {
+        questionHTML += `<img src="${q.image}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
+    }
+    
+    // 이미지 배열이 있으면 각 이미지 추가
+    if (q.images && q.images.length > 0) {
+        q.images.forEach(img => {
+            questionHTML += `<img src="${img}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
+        });
+    }
+    
+    questionContainer.innerHTML = questionHTML;
+    
+    // 이전/다음 버튼 상태 업데이트
+    prevButton.disabled = currentQuestionIndex === 0;
+    prevButton.classList.toggle('opacity-50', currentQuestionIndex === 0);
+    prevButton.classList.toggle('cursor-not-allowed', currentQuestionIndex === 0);
+    
+    answerContainer.classList.add('hidden');
+    checkAnswerButton.classList.remove('hidden');
+    markCorrectButton.classList.add('hidden');
+    markWrongButton.classList.add('hidden');
+    
+    isAnswerRevealed = false;
+    updateProgressInfo();
 }
 
 // 정답 확인
@@ -177,6 +183,14 @@ markWrongButton.addEventListener('click', () => {
     wrongCountEl.textContent = wrongAnswers;
     wrongQuestions.push(selectedQuestions[currentQuestionIndex]);
     nextQuestion();
+});
+
+// 이전 문제로 이동
+prevButton.addEventListener('click', () => {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showCurrentQuestion();
+    }
 });
 
 // 다음 문제로 이동 - 확인 대화상자 없이 바로 진행
