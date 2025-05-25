@@ -129,8 +129,16 @@ checkAnswerButton.addEventListener('click', () => {
                 .replace(/>/g, '&gt;');
         }
         
-        // 줄바꿈 처리 (이스케이프 처리 후에 해야 함)
-        formattedAnswer = formattedAnswer.replace(/\n/g, '<br>');
+        // 줄바꿈 처리 개선
+        formattedAnswer = formattedAnswer
+            // 연속된 공백을 하나로 통일
+            .replace(/\s+/g, ' ')
+            // 줄바꿈을 <br>로 변환하고 각 줄 앞에 들여쓰기 추가
+            .split('\n')
+            .map(line => line.trim())
+            .filter(line => line.length > 0)  // 빈 줄 제거
+            .map(line => `<div class="ml-4 my-1">${line}</div>`)
+            .join('');
         
         // 처리된 텍스트를 HTML에 표시
         answerText.innerHTML = formattedAnswer;
