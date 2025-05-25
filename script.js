@@ -131,13 +131,25 @@ checkAnswerButton.addEventListener('click', () => {
         
         // 줄바꿈 처리 개선
         formattedAnswer = formattedAnswer
-            // 연속된 공백을 하나로 통일
-            .replace(/\s+/g, ' ')
-            // 줄바꿈을 <br>로 변환하고 각 줄 앞에 들여쓰기 추가
+            // 연속된 공백을 보존하면서 줄바꿈 처리
             .split('\n')
-            .map(line => line.trim())
+            .map(line => {
+                // 각 줄의 앞뒤 공백 제거
+                line = line.trim();
+                // 줄 시작 부분의 공백을 보존 (들여쓰기용)
+                const leadingSpaces = line.match(/^\s*/)[0];
+                // 나머지 부분의 연속된 공백을 하나로 통일
+                const content = line.slice(leadingSpaces.length).replace(/\s+/g, ' ');
+                // 들여쓰기와 내용을 합쳐서 반환
+                return leadingSpaces + content;
+            })
             .filter(line => line.length > 0)  // 빈 줄 제거
-            .map(line => `<div class="ml-4 my-1">${line}</div>`)
+            .map(line => {
+                // 들여쓰기 공백을 HTML 공백으로 변환
+                const indent = line.match(/^\s*/)[0].length;
+                const content = line.trim();
+                return `<div class="whitespace-pre-wrap break-words pl-${indent * 4} my-1">${content}</div>`;
+            })
             .join('');
         
         // 처리된 텍스트를 HTML에 표시
