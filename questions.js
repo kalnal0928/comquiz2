@@ -287,7 +287,7 @@ const questions = [
   },
   {
     "chapter": "8장",
-    "question": "8장-2. 아래 배열에서 인덱스가 7인 값은?p6",
+    "question": "8장-2. 아래 배열에서 인덱스가 7인 값은?p6(*그림은 예시입니다.)",
     "image": "images/8-2.png",
     "answer": `예시 없음
             •배열의 인덱스는 0부터 시작`
