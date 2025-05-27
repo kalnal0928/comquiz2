@@ -296,7 +296,7 @@ const questions = [
   },
   {
     "chapter": "8장",
-    "question": "8장-4. '타입과 크기가 다를 수 있는' 데이터 항목들의 블록으로, 각 항목은 필드(field)라고 불리는 자료구조는?p11",
+    "question": "8장-4. '타입과 크기가 다를 수 있는' 데이터 항목들의 블록으로, 각 항목은 필드(field)라고 불리는 자료구조는?p6",
     "answer": `정답: 구조체(structure)`
   },
   {
@@ -365,7 +365,7 @@ const questions = [
   },
   {
     "chapter": "8장",
-    "question": "8장-17. 다양한 타입의 필드로 표현되는 자료구조는?p11",
+    "question": "8장-17. 다양한 타입의 필드로 표현되는 자료구조는?p6",
     "answer": `구조체(structure)`
   },
   {
