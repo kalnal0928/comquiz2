@@ -314,6 +314,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-6. 항목들에 대한 제거와 삽입이 마지막 원소쪽에서만 이루어지는 리스트는?p17",
+    "image": "images/8-7.png",
     "answer": `정답: 스택(stack)`
   },
   {
