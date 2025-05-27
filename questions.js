@@ -332,7 +332,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-9. 한쪽 끝에서 삽입이 일어나고, 그 반대쪽 끝에서 삭제가 일어나는 순서 리스트는?p21",
-    "questionImage": "images/8-9.png",
+    "answerImage": "images/8-9.png",
     "answer": `정답: 큐(queue)`
   },
   {
