@@ -110,9 +110,14 @@ function showCurrentQuestion() {
     // 질문 표시
     let questionHTML = `<h3 class="font-semibold text-lg mb-2">${q.question}</h3>`;
 
-    // 질문과 함께 이미지가 있는 경우 (image가 answer 속성보다 앞에 있는 경우)
-    if (q.image && Object.keys(q).indexOf('image') < Object.keys(q).indexOf('answer')) {
-        questionHTML += `<img src="${q.image}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
+    // 질문과 함께 이미지가 있는 경우
+    if (q.questionImage) {
+        questionHTML += `<img src="${q.questionImage}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
+    } else if (q.questionImages) {
+        // 여러 이미지가 있는 경우
+        q.questionImages.forEach(imageSrc => {
+            questionHTML += `<img src="${imageSrc}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
+        });
     }
     
     questionContainer.innerHTML = questionHTML;
@@ -182,9 +187,14 @@ checkAnswerButton.addEventListener('click', () => {
         // 처리된 텍스트를 HTML에 표시
         answerText.innerHTML = formattedAnswer;
 
-        // 정답과 함께 이미지가 있는 경우 (image가 answer 속성보다 뒤에 있는 경우)
-        if (q.image && Object.keys(q).indexOf('image') > Object.keys(q).indexOf('answer')) {
-            answerText.innerHTML += `<img src="${q.image}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
+        // 정답과 함께 이미지가 있는 경우
+        if (q.answerImage) {
+            answerText.innerHTML += `<img src="${q.answerImage}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
+        } else if (q.answerImages) {
+            // 여러 이미지가 있는 경우
+            q.answerImages.forEach(imageSrc => {
+                answerText.innerHTML += `<img src="${imageSrc}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
+            });
         }
         
         // UI 상태 업데이트

@@ -4,7 +4,7 @@ const questions = [
     "question": "5장-1. 알고리즘 단계에 대한 설명이 아닌 것은?",
     "answer": `-알고리즘의 단계는 순서가 정해져 있음
                 -알고리즘 단계들이 실행되는 방식: 순차적 구조(1, 2, 3…), 병렬구조(다중 프로세서), 원인과 결과(회로)`,
-    "image": "images/5-1.png"
+    "answerImage": "images/5-1.png"
   },
   {
     "chapter": "5장",
@@ -115,7 +115,7 @@ const questions = [
   {
     "chapter": "5장",
     "question": "5장-13. 다음 중, 더 효율적인 검색 방법은?p58",
-    "image": "images/5-13.png",
+    "questionImage": "images/5-13.png",
     "answer": `정리된 효율성 순서 (낮은 복잡도 → 높은 복잡도):??
               O(1) - 가장 효율적 (예: 해시 테이블, 스택)
 
@@ -289,14 +289,14 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-2. 아래 배열에서 인덱스가 7인 값은?p6(*그림은 예시입니다.)",
-    "image": "images/8-2.png",
+    "questionImage": "images/8-2.png",
     "answer": `예시 없음
             •배열의 인덱스는 0부터 시작`
   },
   {
     "chapter": "8장",
     "question": "8장-3. 다음 배열은 몇 차원인가?p8",
-    "image": "images/8-3.png",
+    "questionImage": "images/8-3.png",
     "answer": `예시 없음
             • 1차원 배열: 하나의 행으로 이루어짐
             • 2차원 배열: 행들과 열들로 이루어짐(1차원 배열의 집합)
@@ -315,13 +315,13 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-6. 항목들에 대한 제거와 삽입이 마지막 원소쪽에서만 이루어지는 리스트는?p17",
-    "image": "images/8-7.png",
+    "questionImage": "images/8-7.png",
     "answer": `정답: 스택(stack)`
   },
   {
     "chapter": "8장",
     "question": "8장-7. 스택에서 가장 최근 항목을 가리키는 변수는 (a)이고, 가장 오래된 항목을 가리키는 변수는 (b)이다. a,b에 해당하는 변수는?",
-    "image": "images/8-7.png",
+    "questionImage": "images/8-7.png",
     "answer": `-(a): 상단(top)  (b): 하단(bottom)`
   },
   {
@@ -332,13 +332,13 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-9. 한쪽 끝에서 삽입이 일어나고, 그 반대쪽 끝에서 삭제가 일어나는 순서 리스트는?p21",
-    "image": "images/8-9.png",
+    "questionImage": "images/8-9.png",
     "answer": `정답: 큐(queue)`
   },
   {
     "chapter": "8장",
     "question": "8장-10. 큐에서 가장 최근 항목을 가리키는 변수는 (a)이고, 가장 오래된 항목을 가리키는 변수는 (b)이다. a,b에 해당하는 변수는?",
-    "image": "images/8-9.png",
+    "questionImage": "images/8-9.png",
     "answer": `(a): 리어(rear)  (b): 프론트(front)`
   },
   {
@@ -364,7 +364,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-15. 다음 그림이 설명하는 자료구조는?",
-    "images": ["images/8-15.png", "images/8-15-1.png", "images/8-15-2.png"],
+    "questionImages": ["images/8-15.png", "images/8-15-1.png", "images/8-15-2.png"],
     "answer": `예시 없음`
   },
   {
@@ -380,7 +380,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-18. 연결 리스트에 새 노드를 삽입하는 연산의 순서는?",
-    "image": "images/8-18.png",
+    "questionImage": "images/8-18.png",
     "answer": `1. 새로운 항목과 포인터를 저장하기에 충분히 큰 사용되지 않는 메모리 셀 블럭을 찾는다.
                2. 새로운 항목을 저장하고 포인터는 리스트 상에서 새로운 항목 뒤에 올 항목의 주소로 채운다.
                3. 새로운 항목 바로 앞에 올 항목의 포인터를 새로운 항목을 가리키도록 변경한다. 교과서 p425`
@@ -388,7 +388,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-19. 이진트리를 배열로 표현한 경우, D 노드가 들어갈 공간의 인덱스는?",
-    "image": "images/8-19.png",
+    "questionImage": "images/8-19.png",
     "answer": `AI개요
               1. 새 노드 생성: 삽입할 노드를 메모리에 할당하고 데이터 값을 저장
               2. 새 노드 링크 설정: 새 노드의 다음 포인터(next)를 삽입할 위치의 다음 노드를 가리키도록 설정
@@ -398,13 +398,13 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-20. 이진 트리의 검색 알고리즘에서, ?에 들어가야 할 값은?",
-    "images": ["images/8-20.png", "images/8-20-1.png"],
+    "questionImages": ["images/8-20.png", "images/8-20-1.png"],
     "answer": `예시없음`
   },
   {
     "chapter": "8장",
     "question": "8장-21. 다음 이진 트리에서 H를 검색하기 위해 탐색할 노드의 최단 경로를 순차적으로 표현하면?",
-    "image": "images/8-21.png",
+    "questionImage": "images/8-21.png",
     "answer": `예시없음`
   }
 ]
