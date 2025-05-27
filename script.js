@@ -110,16 +110,9 @@ function showCurrentQuestion() {
     // 질문 표시
     let questionHTML = `<h3 class="font-semibold text-lg mb-2">${q.question}</h3>`;
 
-    // 단일 이미지가 있으면 추가
+    // 질문과 함께 이미지가 있는 경우
     if (q.image) {
         questionHTML += `<img src="${q.image}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
-    }
-    
-    // 이미지 배열이 있으면 각 이미지 추가
-    if (q.images && q.images.length > 0) {
-        q.images.forEach(img => {
-            questionHTML += `<img src="${img}" alt="문제 이미지" class="my-2 max-w-full h-auto">`;
-        });
     }
     
     questionContainer.innerHTML = questionHTML;
@@ -188,6 +181,11 @@ checkAnswerButton.addEventListener('click', () => {
         
         // 처리된 텍스트를 HTML에 표시
         answerText.innerHTML = formattedAnswer;
+
+        // 정답과 함께 이미지가 있는 경우
+        if (q.image) {
+            answerText.innerHTML += `<img src="${q.image}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
+        }
         
         // UI 상태 업데이트
         answerContainer.classList.remove('hidden');
