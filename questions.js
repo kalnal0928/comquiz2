@@ -355,7 +355,7 @@ const questions = [
   {
     "chapter": "8장",
     "question": "8장-15. 다음 그림이 설명하는 자료구조는?",
-    "image": "images/8-15.png",
+    "image": ["images/8-15.png", "images/8-15-1.png", "images/8-15-2.png"],
     "answer": `예시 없음`
   },
   {
