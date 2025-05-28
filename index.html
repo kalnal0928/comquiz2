@@ -54,20 +54,21 @@
                 <!-- Question will be inserted here -->
             </div>
             
+            <div id="answer-input-container" class="mb-4">
+                <input type="text" id="answer-input" class="w-full p-2 border rounded" placeholder="답을 입력하세요">
+            </div>
+            
             <div id="answer-container" class="hidden bg-green-100 border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
                 <strong class="font-bold">정답!</strong>
                 <span class="block sm:inline" id="answer-text"></span>
             </div>
             
             <div class="flex justify-between">
-                <button id="check-answer" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                    정답 확인
-                </button>
                 <div class="flex flex-row space-x-2">
-                    <button id="mark-correct" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded hidden">
+                    <button id="mark-correct" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                         맞춤
                     </button>
-                    <button id="mark-wrong" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded hidden">
+                    <button id="mark-wrong" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                         틀림
                     </button>
                 </div>

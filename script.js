@@ -103,6 +103,10 @@ function nextQuestion() {
     }
 }
 
+// DOM 요소 선택에 추가
+const answerInput = document.getElementById('answer-input');
+const answerInputContainer = document.getElementById('answer-input-container');
+
 // 현재 문제 표시
 function showCurrentQuestion() {
     const q = selectedQuestions[currentQuestionIndex];
@@ -122,6 +126,10 @@ function showCurrentQuestion() {
     
     questionContainer.innerHTML = questionHTML;
     
+    // 답변 입력 필드 초기화
+    answerInput.value = '';
+    answerInputContainer.classList.remove('hidden');
+    
     // 이전/다음 버튼 상태 업데이트
     prevButton.disabled = currentQuestionIndex === 0;
     prevButton.classList.toggle('opacity-50', currentQuestionIndex === 0);
@@ -132,10 +140,6 @@ function showCurrentQuestion() {
     nextButton.classList.toggle('cursor-not-allowed', currentQuestionIndex === totalQuestions - 1);
     
     answerContainer.classList.add('hidden');
-    checkAnswerButton.classList.remove('hidden');
-    markCorrectButton.classList.add('hidden');
-    markWrongButton.classList.add('hidden');
-    
     isAnswerRevealed = false;
     updateProgressInfo();
 }
@@ -146,79 +150,128 @@ prevButton.addEventListener('click', prevQuestion);
 // 다음 문제 버튼 이벤트 리스너
 nextButton.addEventListener('click', nextQuestion);
 
-// 정답 확인
-checkAnswerButton.addEventListener('click', () => {
-    if (!isAnswerRevealed) {
-        const q = selectedQuestions[currentQuestionIndex];
-        
-        // 답변 텍스트 처리
-        let formattedAnswer = q.answer;
-        
-        // HTML 태그 이스케이프 처리 (필요한 경우)
-        if (formattedAnswer.includes('<a>') || formattedAnswer.includes('<') && formattedAnswer.includes('>')) {
-            formattedAnswer = formattedAnswer
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;');
-        }
-        
-        // 줄바꿈 처리 개선
-        formattedAnswer = formattedAnswer
-            // 연속된 공백을 보존하면서 줄바꿈 처리
-            .split('\n')
-            .map(line => {
-                // 각 줄의 앞뒤 공백 제거
-                line = line.trim();
-                // 줄 시작 부분의 공백을 보존 (들여쓰기용)
-                const leadingSpaces = line.match(/^\s*/)[0];
-                // 나머지 부분의 연속된 공백을 하나로 통일
-                const content = line.slice(leadingSpaces.length).replace(/\s+/g, ' ');
-                // 들여쓰기와 내용을 합쳐서 반환
-                return leadingSpaces + content;
-            })
-            .filter(line => line.length > 0)  // 빈 줄 제거
-            .map(line => {
-                // 들여쓰기 공백을 HTML 공백으로 변환
-                const indent = line.match(/^\s*/)[0].length;
-                const content = line.trim();
-                return `<div class="whitespace-pre-wrap break-words pl-${indent * 4} my-1">${content}</div>`;
-            })
-            .join('');
-        
-        // 처리된 텍스트를 HTML에 표시
-        answerText.innerHTML = formattedAnswer;
-
-        // 정답과 함께 이미지가 있는 경우
-        if (q.answerImage) {
-            answerText.innerHTML += `<img src="${q.answerImage}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
-        } else if (q.answerImages) {
-            // 여러 이미지가 있는 경우
-            q.answerImages.forEach(imageSrc => {
-                answerText.innerHTML += `<img src="${imageSrc}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
-            });
-        }
-        
-        // UI 상태 업데이트
-        answerContainer.classList.remove('hidden');
-        checkAnswerButton.classList.add('hidden');
-        markCorrectButton.classList.remove('hidden');
-        markWrongButton.classList.remove('hidden');
-        isAnswerRevealed = true;
-    }
-});
-
 // 맞춤 표시
 markCorrectButton.addEventListener('click', () => {
+    const q = selectedQuestions[currentQuestionIndex];
+    const userAnswer = answerInput.value.trim();
+    
+    // 답변 입력 필드 숨기기
+    answerInputContainer.classList.add('hidden');
+    
+    // 정답 표시
+    let formattedAnswer = q.answer;
+    
+    // HTML 태그 이스케이프 처리 (필요한 경우)
+    if (formattedAnswer.includes('<a>') || formattedAnswer.includes('<') && formattedAnswer.includes('>')) {
+        formattedAnswer = formattedAnswer
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+    
+    // 줄바꿈 처리 개선
+    formattedAnswer = formattedAnswer
+        .split('\n')
+        .map(line => {
+            line = line.trim();
+            const leadingSpaces = line.match(/^\s*/)[0];
+            const content = line.slice(leadingSpaces.length).replace(/\s+/g, ' ');
+            return leadingSpaces + content;
+        })
+        .filter(line => line.length > 0)
+        .map(line => {
+            const indent = line.match(/^\s*/)[0].length;
+            const content = line.trim();
+            return `<div class="whitespace-pre-wrap break-words pl-${indent * 4} my-1">${content}</div>`;
+        })
+        .join('');
+    
+    // 사용자 답변과 정답 표시
+    answerText.innerHTML = `<div class="mb-2">내 답변: ${userAnswer}</div>${formattedAnswer}`;
+
+    // 정답과 함께 이미지가 있는 경우
+    if (q.answerImage) {
+        answerText.innerHTML += `<img src="${q.answerImage}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
+    } else if (q.answerImages) {
+        q.answerImages.forEach(imageSrc => {
+            answerText.innerHTML += `<img src="${imageSrc}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
+        });
+    }
+    
+    // UI 상태 업데이트
+    answerContainer.classList.remove('hidden');
     correctAnswers++;
     correctCountEl.textContent = correctAnswers;
-    nextQuestion();
+    
+    // 잠시 후 다음 문제로 이동
+    setTimeout(() => {
+        nextQuestion();
+    }, 2000);
 });
 
 // 틀림 표시
 markWrongButton.addEventListener('click', () => {
+    const q = selectedQuestions[currentQuestionIndex];
+    const userAnswer = answerInput.value.trim();
+    
+    // 답변 입력 필드 숨기기
+    answerInputContainer.classList.add('hidden');
+    
+    // 정답 표시
+    let formattedAnswer = q.answer;
+    
+    // HTML 태그 이스케이프 처리 (필요한 경우)
+    if (formattedAnswer.includes('<a>') || formattedAnswer.includes('<') && formattedAnswer.includes('>')) {
+        formattedAnswer = formattedAnswer
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+    
+    // 줄바꿈 처리 개선
+    formattedAnswer = formattedAnswer
+        .split('\n')
+        .map(line => {
+            line = line.trim();
+            const leadingSpaces = line.match(/^\s*/)[0];
+            const content = line.slice(leadingSpaces.length).replace(/\s+/g, ' ');
+            return leadingSpaces + content;
+        })
+        .filter(line => line.length > 0)
+        .map(line => {
+            const indent = line.match(/^\s*/)[0].length;
+            const content = line.trim();
+            return `<div class="whitespace-pre-wrap break-words pl-${indent * 4} my-1">${content}</div>`;
+        })
+        .join('');
+    
+    // 사용자 답변과 정답 표시
+    answerText.innerHTML = `<div class="mb-2">내 답변: ${userAnswer}</div>${formattedAnswer}`;
+
+    // 정답과 함께 이미지가 있는 경우
+    if (q.answerImage) {
+        answerText.innerHTML += `<img src="${q.answerImage}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
+    } else if (q.answerImages) {
+        q.answerImages.forEach(imageSrc => {
+            answerText.innerHTML += `<img src="${imageSrc}" alt="정답 이미지" class="my-2 max-w-full h-auto">`;
+        });
+    }
+    
+    // UI 상태 업데이트
+    answerContainer.classList.remove('hidden');
     wrongAnswers++;
     wrongCountEl.textContent = wrongAnswers;
     wrongQuestions.push(selectedQuestions[currentQuestionIndex]);
-    nextQuestion();
+    
+    // 잠시 후 다음 문제로 이동
+    setTimeout(() => {
+        nextQuestion();
+    }, 2000);
+});
+
+// Enter 키로 답변 제출
+answerInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        markCorrectButton.click();
+    }
 });
 
 // 결과 표시
